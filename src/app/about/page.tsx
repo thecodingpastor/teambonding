@@ -6,7 +6,7 @@ import Testimonials from "./_components/testimonials";
 
 const AboutPage = () => {
   return (
-    <div>
+    <div className="relative overflow-x-hidden">
       <AboutBanner />
       <MissionAndVision />
       <ActivitiesSection />
