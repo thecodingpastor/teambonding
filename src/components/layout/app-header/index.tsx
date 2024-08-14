@@ -11,7 +11,7 @@ const AppHeader = () => {
       className="w-full flex items-center p-2 fixed md:sticky top-0 bg-white z-30 border-b"
       // style={{ boxShadow: "0px 8px 23.2px 0px rgba(0, 0, 0, 0.09)" }}
     >
-      <header className="flex justify-between items-center w-full max-w-[1200px] mx-auto relative">
+      <header className="flex md:justify-between items-center w-full max-w-[1200px] mx-auto relative">
         <Link href="/">
           <Image
             src={BlackLogo}
@@ -24,6 +24,9 @@ const AppHeader = () => {
           <Navlinks />
           <GetQuoteButton />
         </nav>
+        <div className="md:hidden ml-auto">
+          <GetQuoteButton />
+        </div>
         <Hamburger />
       </header>
     </div>

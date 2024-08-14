@@ -19,10 +19,11 @@
   position: relative;
   flex: 0 0 600px;
   margin-right: calc(100vw - 600px);
-  padding: 20px;
+  padding: 40px;
   padding-left: 90px;
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding-right: 20px;
 
   @media (max-width: 780px) {
     flex: 0 0 380px;

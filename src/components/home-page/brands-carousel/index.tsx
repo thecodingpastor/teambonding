@@ -23,7 +23,6 @@ const BrandsCarousel: React.FC = () => {
         <div className={styles.embla__container}>
           {CarouselData.map(({ ctaLink, id, image, label }) => (
             <div className={styles.embla__slide} key={id}>
-              {/* <Link href={ctaLink} className={styles.embla__slide} key={id}> */}
               <Image
                 className={styles.embla__slide__img}
                 src={image}

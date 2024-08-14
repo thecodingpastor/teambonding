@@ -7,6 +7,7 @@ import styles from "./Carousel.module.css";
 import { CarouselData } from "./CarouselData";
 import Image from "next/image";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { Quotes } from "@/assets";
 
 const TestimonialsCarousel: React.FC = () => {
   const [emblaRef, embla] = useEmblaCarousel({ loop: true }, [
@@ -34,6 +35,11 @@ const TestimonialsCarousel: React.FC = () => {
         <div className={styles.embla__container}>
           {CarouselData.map(({ author, testimony, id, image }) => (
             <div className={styles.embla__slide} key={id}>
+              <Image
+                src={Quotes}
+                alt=""
+                className="w-16 absolute left-1/2 -translate-x-1/2 -top-6"
+              />
               <Image
                 className={styles.embla__slide__img}
                 src={image}
