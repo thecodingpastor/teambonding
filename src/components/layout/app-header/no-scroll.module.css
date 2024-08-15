@@ -1,0 +1,18 @@
+/* .noScroll::-webkit-scrollbar {
+  width: 0;
+} */
+
+@media (max-width: 640px) {
+  .noScroll::-webkit-scrollbar {
+    width: 0;
+  }
+  .noScroll::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+}
+
+/* .noScroll::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  @media (max-width: 640px) {
+  }
+} */

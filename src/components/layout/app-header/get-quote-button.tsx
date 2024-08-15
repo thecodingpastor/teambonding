@@ -8,6 +8,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
+
+import classes from "./no-scroll.module.css";
 
 const GetQuoteButton = () => {
   return (
@@ -15,8 +18,13 @@ const GetQuoteButton = () => {
       <DialogTrigger asChild>
         <Button className="uppercase font-bold">Get a Quote</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px] h-[90vh]">
-        <div className="overflow-y-auto overflow-x-hidden relative h-full m-auto pr-4">
+      <DialogContent className="sm:max-w-[600px] h-[90vh] ">
+        <div
+          className={cn(
+            "overflow-y-auto overflow-x-hidden relative w-full h-full m-auto sm:pr-4",
+            classes.noScroll
+          )}
+        >
           <DialogHeader className="mb-8">
             <DialogTitle className="font-aleo text-3xl text-center">
               Need a <span className="text-color-orange">Quote ?</span>
