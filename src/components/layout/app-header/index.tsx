@@ -8,7 +8,7 @@ import GetQuoteButton from "./get-quote-button";
 const AppHeader = () => {
   return (
     <div
-      className="w-full flex items-center p-2 fixed md:sticky top-0 bg-white z-30 border-b"
+      className="w-full flex items-center p-2 fixed md:sticky top-0 bg-white z-30 border-b text-base"
       // style={{ boxShadow: "0px 8px 23.2px 0px rgba(0, 0, 0, 0.09)" }}
     >
       <header className="flex md:justify-between items-center w-full max-w-[1200px] mx-auto relative">

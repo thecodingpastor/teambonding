@@ -10,11 +10,13 @@ const BondingBannerSection = () => {
         sizes="400vw"
         className="min-h-[400px] sm:h-full absolute "
       />
-      <h3 className="absolute bottom-[20%] md:top-[30%] left-[10%] z-[1] w-full max-w-[400px] md:max-w-[500px] lg:max-w-[600px] px-4 font-bold text-[40px] md:text-[50px] lg:text-[64px]">
+      <div
+        className="w-full min-h-[400px] sm:h-full absolute"
+        style={{ background: "rgba(0,0,0,0.3)" }}
+      ></div>
+      <h3 className="absolute bottom-[15%] left-[5%] z-[1] w-full max-w-[400px] md:max-w-[500px] lg:max-w-[600px] px-4 font-bold text-[35px] md:text-[45px] lg:text-[55px] text-white">
         Discover Our Range of Team Bonding Activities.
       </h3>
-      {/* <div className="relative z-[1] w-full max-w-[600px] px-4">
-      </div> */}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { LandingAbout } from "@/assets";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import { Link } from "../layout/Link";
 
 const AboutSection = () => {
   return (
@@ -24,7 +25,9 @@ const AboutSection = () => {
             communication, and build stronger, more cohesive teams.
           </p>
         </div>
-        <Button className="max-w-max mt-2">Learn more </Button>
+        <Link href="/about">
+          <Button className="max-w-max mt-2">Learn more </Button>
+        </Link>
       </div>
     </div>
   );

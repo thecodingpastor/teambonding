@@ -6,6 +6,7 @@ import { Button } from "../ui/button";
 import MyDropdown from "../dropdown";
 import DatePickerWithRange from "./date-picker";
 import { DateRange } from "react-day-picker";
+import { AppToast } from "@/lib/toast";
 
 const QuoteForm = () => {
   const [data, setData] = useState({
@@ -48,6 +49,7 @@ const QuoteForm = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    AppToast({ message: "Message sent successfully" });
     // console.log({
     //   ...data,
     //   location: Location,

@@ -21,7 +21,7 @@ const ContactPage = () => {
         <div className="flex-1 shrink-0">
           <h3 className="text-3xl mb-8">Contact Us</h3>
           <div className="md:pl-6 text-[18px]">
-            <p className="mb-6">Addess:</p>
+            <p className="mb-6">Address:</p>
             <p>
               Office HQ <br />
               22, Primate Adejobi Street,

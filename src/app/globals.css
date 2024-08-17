@@ -67,7 +67,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground !font-mulish font-bold;
+    @apply bg-background text-foreground !font-mulish font-normal text-lg;
   }
 
   h1,
@@ -91,6 +91,15 @@
   img {
     width: auto;
     object-fit: cover;
+  }
+
+  .toast button {
+    background-color: #202121;
+    color: white;
+  }
+  .toast button:hover {
+    background-color: #202121;
+    color: white;
   }
 
   ::-webkit-scrollbar {

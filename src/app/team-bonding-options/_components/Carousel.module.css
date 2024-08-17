@@ -1,0 +1,41 @@
+.embla {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  max-height: 90vh;
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  position: relative;
+  flex: 0 0 500px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+
+  @media (max-width: 600px) {
+    flex: 0 0 100%;
+    padding-right: 0;
+  }
+}
+
+.embla__slide__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 130px;
+  border-radius: 10px;
+
+  @media (max-width: 600px) {
+    min-height: 100px;
+  }
+}

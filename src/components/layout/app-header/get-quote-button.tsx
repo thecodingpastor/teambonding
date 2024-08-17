@@ -12,11 +12,11 @@ import { cn } from "@/lib/utils";
 
 import classes from "./no-scroll.module.css";
 
-const GetQuoteButton = () => {
+const GetQuoteButton = ({ text }: { text?: string }) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="uppercase font-bold">Get a Quote</Button>
+        <Button className="uppercase font-bold">{text || "Get a Quote"}</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[600px] h-[90vh] ">
         <div

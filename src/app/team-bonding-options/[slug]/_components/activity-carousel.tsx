@@ -1,20 +1,22 @@
 "use client";
 
-import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import styles from "./Carousel.module.css";
-import { CarouselData } from "./CarouselData";
 import Image from "next/image";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { Quotes } from "@/assets";
 
-const TestimonialsCarousel: React.FC = () => {
+import { CarouselData } from "./data";
+import { Button } from "@/components/ui/button";
+import { FaArrowLeft, FaArrowRight, FaChevronRight } from "react-icons/fa";
+import { useCallback } from "react";
+import GalleryModal from "../../_components/gallery-modal";
+
+const ActivityCarousel = () => {
   const [emblaRef, embla] = useEmblaCarousel({ loop: true }, [
     Autoplay({
       stopOnInteraction: false,
       stopOnMouseEnter: true,
-      delay: 7000,
+      delay: 2000,
     }),
   ]);
 
@@ -33,26 +35,27 @@ const TestimonialsCarousel: React.FC = () => {
     <div className={styles.embla}>
       <div className={styles.embla__viewport} ref={emblaRef}>
         <div className={styles.embla__container}>
-          {CarouselData.map(({ author, testimony, id, image }) => (
+          {CarouselData.map(({ id, images, logo }) => (
             <div className={styles.embla__slide} key={id}>
-              <Image
-                src={Quotes}
-                alt=""
-                className="w-16 absolute left-1/2 -translate-x-1/2 -top-6"
-              />
-              <Image
-                className={styles.embla__slide__img}
-                src={image}
-                alt={author}
-                sizes="400vw"
-              />
-              <p>{testimony}</p>
-              <p className="font-black font-aleo mt-3">{author}</p>
+              <div className="relative">
+                <Image
+                  className={styles.embla__slide__img}
+                  src={images[0].image}
+                  alt={images[0].name}
+                  sizes="400vw"
+                />
+                <Image
+                  src={logo}
+                  alt={id}
+                  className="absolute bottom-2 left-2 max-w-[80px] md:max-w-[110px]"
+                />
+              </div>
+              <GalleryModal images={images} logo={logo} />
             </div>
           ))}
         </div>
       </div>
-      <div className="flex justify-between lg:absolute w-full max-w-[400px] lg:max-w-[950px] lg:left-1/2 lg:-translate-y-1/2 lg:-translate-x-1/2 lg:top-1/2 mx-auto mt-5 ">
+      <div className="flex justify-between absolute w-full left-1/2 -translate-y-1/2 -translate-x-1/2 top-1/2 mx-auto mt-5 ">
         <FaArrowLeft
           onClick={scrollPrev}
           className={arrowClass + " left-[10px]"}
@@ -68,4 +71,4 @@ const TestimonialsCarousel: React.FC = () => {
   );
 };
 
-export default TestimonialsCarousel;
+export default ActivityCarousel;

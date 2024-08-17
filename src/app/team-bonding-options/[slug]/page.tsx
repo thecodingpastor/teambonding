@@ -1,7 +1,142 @@
-import React from "react";
+import GetQuoteButton from "@/components/layout/app-header/get-quote-button";
+import ActivityCarousel from "./_components/activity-carousel";
+import { notFound } from "next/navigation";
+import { fetchActivity } from "./simulate-fetch";
+import { Suspense } from "react";
+import { FaArrowLeft } from "react-icons/fa";
+import { Link } from "@/components/layout/Link";
+import { Button } from "@/components/ui/button";
 
-const SingleActivityPage = () => {
-  return <div>SingleActivityPage</div>;
+const SingleActivityPage = async ({
+  params: { slug },
+}: // searchParams,
+{
+  params: { slug: string };
+  // searchParams: { [key: string]: string | string[] | undefined };
+}) => {
+  const activity = await fetchActivity(slug);
+  if (!activity) {
+    return notFound();
+  }
+  const {
+    benefits,
+    image,
+    intro,
+    lead,
+    link,
+    name,
+    requirements,
+    teamSize,
+    time,
+  } = activity;
+  return (
+    <Suspense
+      fallback={
+        <h3>
+          {" "}
+          Zazuuu Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+          Explicabo, aspernatur?
+        </h3>
+      }
+    >
+      <div className="max-w-[1100px] mx-auto px-4 relative">
+        <Link
+          href="/team-bonding-options"
+          className="text-xl absolute mr-[20px] -top-[50px] md:top-2 right-0"
+        >
+          <Button
+            hideArrow
+            className="bg-white text-muted-foreground hover:text-black transition duration-300 border-[2px]  hover:border-[2px] hover:border-black"
+          >
+            <FaArrowLeft className="" />
+            Back
+          </Button>
+        </Link>
+        <div className="mt-32 md:mt-20 mb-5 md:mb-10 flex justify-between items-center">
+          <h3 className="">{name}</h3>
+        </div>
+        <p>{intro}</p>
+        <ActivityCarousel />
+        <p>{lead}</p>
+        <div className="my-10 mb-6">
+          <div className="mb-6">
+            <h4 className="font-bold text-[28px] mb-2">
+              Team Size Recommended for This Activity
+            </h4>
+            {teamSize.map((item, index) => (
+              <p key={index} className="mb-1">
+                {item}
+              </p>
+            ))}
+          </div>
+          <div className="mb-6">
+            <h4 className="font-bold text-[28px] mb-2">Time Needed</h4>
+            {time.map((item, index) => (
+              <p key={index} className="mb-1">
+                {item}
+              </p>
+            ))}
+          </div>
+          <div className="mb-6">
+            <h4 className="font-bold text-[28px] mb-2">
+              Benefits of This Activity to Your Team
+            </h4>
+            {benefits.map(({ topic, intro, list }, index) => (
+              <div key={index} className="mb-1">
+                {intro && (
+                  <p>
+                    <span className="font-bold text-lg text-color-orange ">
+                      {topic + ": "}
+                    </span>
+                    {intro}
+                  </p>
+                )}
+                <div className="mt-4 mb-10">
+                  {list.map(({ lead, children }, index) => (
+                    <div key={index} className="mb-4">
+                      {lead && (
+                        <p className="font-bold text-color-green">
+                          {lead + ": "}
+                        </p>
+                      )}
+                      {children.map((child, index) => (
+                        <p key={index}>{child}</p>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mb-6">
+            <h4 className="font-bold text-[28px] mb-5">
+              Requirements for Team Members to Be Part of This Activity
+            </h4>
+            <div className="mt-4 mb-10">
+              {requirements.map(({ lead, list }, index) => (
+                <div key={index} className="mb-4">
+                  {lead && (
+                    <p className="font-bold text-color-orange">{lead + ": "}</p>
+                  )}
+                  {list.map((child, index) => (
+                    <p key={index}>{child}</p>
+                  ))}
+                </div>
+              ))}
+            </div>
+            {/* {requirements.map(({ lead, list }, index) => (
+              <p key={index} className="mb-1">
+                {lead}
+              </p>
+            ))} */}
+          </div>
+        </div>
+        <div className="my-10">
+          <GetQuoteButton text={"Request a Quote"} />
+        </div>
+      </div>
+    </Suspense>
+  );
 };
 
 export default SingleActivityPage;

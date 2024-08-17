@@ -1,0 +1,45 @@
+.embla {
+  position: relative;
+  max-width: 100%;
+  margin: 60px auto;
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  position: relative;
+  flex: 0 0 250px;
+  width: 250px;
+  padding-right: 20px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  /* border: 3px solid red; */
+
+  @media (max-width: 768px) {
+    /* padding-right: 20px; */
+    /* flex: 0 0 180px; */
+    /* margin-right: 10px; */
+  }
+}
+
+.embla__slide__img {
+  display: block;
+  width: 100%;
+  min-width: 250px;
+  height: auto;
+  /* min-height: 130px; */
+  border-radius: 10px;
+
+  /* @media (max-width: 600px) {
+    min-height: 100px;
+  } */
+}

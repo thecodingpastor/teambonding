@@ -1,14 +1,12 @@
 "use client";
 
-import React, { useEffect, useState, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import styles from "./Carousel.module.css";
 import { CarouselData } from "./CarouselData";
 import Image from "next/image";
-import { Link } from "@/components/layout/Link";
 
-const BrandsCarousel: React.FC = () => {
+const BrandsCarousel = () => {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
     Autoplay({
       stopOnInteraction: false,
@@ -21,7 +19,7 @@ const BrandsCarousel: React.FC = () => {
     <div className={styles.embla}>
       <div className={styles.embla__viewport} ref={emblaRef}>
         <div className={styles.embla__container}>
-          {CarouselData.map(({ ctaLink, id, image, label }) => (
+          {CarouselData.map(({ id, image, label }) => (
             <div className={styles.embla__slide} key={id}>
               <Image
                 className={styles.embla__slide__img}
@@ -33,18 +31,6 @@ const BrandsCarousel: React.FC = () => {
           ))}
         </div>
       </div>
-
-      {/* <div className={styles.embla__dots}>
-        {scrollSnaps.map((_, index) => (
-          <button
-            key={index}
-            className={`${styles.embla__dot} ${
-              index === selectedIndex ? styles.embla__dot__active : ""
-            }`}
-            onClick={() => embla && embla.scrollTo(index)}
-          />
-        ))}
-      </div> */}
     </div>
   );
 };

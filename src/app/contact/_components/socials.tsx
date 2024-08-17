@@ -11,12 +11,12 @@ const data = [
   {
     id: "2",
     Icon: BsTwitterX,
-    link: "#",
+    link: "https://www.instagram.com/team_bonding_nigeria/",
   },
   {
     id: "3",
     Icon: FaFacebookF,
-    link: "#",
+    link: "https://www.instagram.com/team_bonding_nigeria/",
   },
 ];
 

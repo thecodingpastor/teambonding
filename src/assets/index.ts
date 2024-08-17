@@ -24,6 +24,11 @@ import Parks from "@/assets/images/parks.webp";
 import Beach from "@/assets/images/beach.webp";
 import Lakowe from "@/assets/images/lakowe.jpeg";
 import TeamBondingBanner from "@/assets/images/team-banner.webp";
+import Outdoor from "@/assets/images/outdoor.webp";
+import Indoor from "@/assets/images/indoor.webp";
+import Wellness from "@/assets/images/wellness.webp";
+import Custom from "@/assets/images/custom.webp";
+import SportEvents from "@/assets/images/sport-events.webp";
 
 // Delete These
 import Access from "@/assets/images/to-delete/access.webp";
@@ -32,9 +37,16 @@ import Continental from "@/assets/images/to-delete/continental.webp";
 import Dangote from "@/assets/images/to-delete/dangote.webp";
 import Mebs from "@/assets/images/to-delete/mebs.webp";
 import SevenUp from "@/assets/images/to-delete/seven-up.webp";
+import Test1 from "@/assets/images/to-delete/Test1.webp";
+import Test2 from "@/assets/images/to-delete/Test2.webp";
 // Delete These
 
 export {
+  Indoor,
+  Outdoor,
+  Wellness,
+  Custom,
+  SportEvents,
   IITA,
   Office,
   Parks,
@@ -68,5 +80,7 @@ export {
   Dangote,
   Mebs,
   SevenUp,
+  Test1,
+  Test2,
   // Delete These
 };

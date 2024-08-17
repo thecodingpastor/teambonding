@@ -32,7 +32,7 @@ const AppFooter = () => {
         <hr className="bg-white text-white h-[1px] w-full" />
         <div className="text-center font-light flex flex-col gap-3">
           <p>
-            Addess: Office HQ | 22, Primate Adejobi Street, Mende, Anthony,
+            Address: Office HQ | 22, Primate Adejobi Street, Mende, Anthony,
             Ikeja, Lagos. Nigeria
           </p>
           <p>
@@ -41,7 +41,16 @@ const AppFooter = () => {
               booking@teambondingnigeria.com
             </a>
           </p>
-          <p>Follow us:</p>
+          <p>
+            Follow us on{" "}
+            <a
+              href="https://www.instagram.com/team_bonding_nigeria/"
+              target="_blank"
+              className="underline font-bold"
+            >
+              Instagram
+            </a>
+          </p>
         </div>
       </div>
     </footer>
