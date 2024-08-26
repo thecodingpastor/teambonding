@@ -30,8 +30,8 @@ const DatePickerWithRange = ({
             variant="ghost"
             hideArrow
             className={cn(
-              "w-[300px] justify-start text-left font-normal h-12 ",
-              !date && "text-muted-foreground"
+              "w-[300px] justify-start text-left font-normal h-12",
+              !date?.from && "text-muted-foreground"
             )}
           >
             <CalendarIcon className="mr-2 h-4 w-4" />
@@ -49,15 +49,15 @@ const DatePickerWithRange = ({
             )}
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-auto p-0" align="start">
+        <PopoverContent className="w-auto p-0 z-[2000] " align="start">
           <Calendar
             initialFocus
             mode="range"
             defaultMonth={date?.from}
             selected={date}
             onSelect={onSelectDate}
-            // onSelect={setDate}
             numberOfMonths={2}
+            fromDate={new Date()}
           />
         </PopoverContent>
       </Popover>

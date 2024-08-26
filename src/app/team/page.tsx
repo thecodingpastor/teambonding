@@ -2,6 +2,11 @@ import Image from "next/image";
 import { TeamData } from "./_components/data";
 import EventLocations from "./_components/event-locations";
 import TeamBanner from "./_components/team-banner";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Team",
+};
 
 const TeamPage = () => {
   return (

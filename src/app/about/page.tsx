@@ -3,6 +3,11 @@ import AboutBanner from "./_components/about-banner";
 import MissionAndVision from "./_components/vision";
 import ActivitiesSection from "./_components/activities";
 import Testimonials from "./_components/testimonials";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+};
 
 const AboutPage = () => {
   return (

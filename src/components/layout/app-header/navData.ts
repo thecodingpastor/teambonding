@@ -11,10 +11,6 @@ const navList = [
     label: "the team",
     link: "/team",
   },
-  {
-    label: "contact",
-    link: "/contact",
-  },
 ];
 
 export default navList;

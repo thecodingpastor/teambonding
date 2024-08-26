@@ -1,5 +1,10 @@
 import QuoteForm from "@/components/quote-form";
 import Socials from "./_components/socials";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+};
 
 const ContactPage = () => {
   return (

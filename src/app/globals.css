@@ -73,7 +73,7 @@
   h1,
   h2,
   h3 {
-    @apply !font-aleo;
+    @apply !font-aleo font-semibold;
   }
 
   h3 {
@@ -91,6 +91,10 @@
   img {
     width: auto;
     object-fit: cover;
+  }
+
+  svg {
+    cursor: pointer;
   }
 
   .toast button {

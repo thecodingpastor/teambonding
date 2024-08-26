@@ -2,6 +2,7 @@ import { FooterBG, WhiteLogo } from "@/assets";
 import Image from "next/image";
 import navList from "../app-header/navData";
 import { Link } from "../Link";
+import AddressSpan from "./address-span";
 
 const AppFooter = () => {
   return (
@@ -32,8 +33,8 @@ const AppFooter = () => {
         <hr className="bg-white text-white h-[1px] w-full" />
         <div className="text-center font-light flex flex-col gap-3">
           <p>
-            Address: Office HQ | 22, Primate Adejobi Street, Mende, Anthony,
-            Ikeja, Lagos. Nigeria
+            <AddressSpan /> Office HQ | 22, Primate Adejobi Street, Mende,
+            Anthony, Ikeja, Lagos. Nigeria
           </p>
           <p>
             Contact Us: Phone +2348032622079 <br />| e-mail:{" "}

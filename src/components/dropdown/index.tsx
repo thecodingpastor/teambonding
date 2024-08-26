@@ -2,7 +2,7 @@
 
 import useClickOut from "@/hooks/useClickout";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { MdCheck } from "react-icons/md";
 
@@ -11,6 +11,7 @@ interface MyDropdownProps {
   triggerLabel: React.ReactNode;
   options: string[];
   onChange: any;
+  reset?: boolean;
   //   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 const MyDropdown = ({
@@ -18,6 +19,7 @@ const MyDropdown = ({
   triggerLabel,
   options,
   onChange,
+  reset,
 }: MyDropdownProps) => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState("");
@@ -28,6 +30,12 @@ const MyDropdown = ({
       setOpen(true);
     }
   };
+
+  useEffect(() => {
+    if (reset) {
+      setSelected("");
+    }
+  }, [reset]);
   const DOMRef = useClickOut<HTMLUListElement>(() => setOpen(false));
 
   return (

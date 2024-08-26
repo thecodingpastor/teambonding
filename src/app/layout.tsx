@@ -4,8 +4,10 @@ import { aleo, mulish } from "@/fonts/fonts";
 import AppFooter from "@/components/layout/app-footer";
 import RouteLoadingProvider from "@/components/loaders/RouteLoadingProvider";
 import Sidebar from "@/components/layout/app-header/Sidebar";
-import AppHeaderWrapper from "@/components/layout/app-header/wrapper";
+import AppHeaderForHomePage from "@/components/layout/app-header/wrapper";
 import { Toaster } from "@/components/ui/sonner";
+import NextAuthProvider from "@/auth/session-provider";
+import AppHeader from "@/components/layout/app-header";
 
 export const metadata: Metadata = {
   title: {
@@ -38,16 +40,22 @@ export default function RootLayout({
       <body className={mulish + " " + aleo}>
         <RouteLoadingProvider>
           <div className="flex flex-col min-h-[100vh]">
-            <Toaster
-              position="bottom-left"
-              className="!bg-[#202121] !text-white"
-              duration={5000}
-              closeButton
-            />
-            <AppHeaderWrapper />
-            <Sidebar />
-            <main className="grow">{children}</main>
-            <AppFooter />
+            <NextAuthProvider>
+              <Toaster
+                position="bottom-left"
+                className="!bg-[#202121] !text-white"
+                duration={5000}
+                closeButton
+              />
+              <AppHeaderForHomePage>
+                <AppHeader />
+              </AppHeaderForHomePage>
+              <Sidebar />
+
+              <main className="grow">{children}</main>
+              <AppFooter />
+              <div id="modal-root"></div>
+            </NextAuthProvider>
           </div>
         </RouteLoadingProvider>
       </body>

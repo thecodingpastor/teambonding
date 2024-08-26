@@ -1,15 +1,20 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import AppHeader from ".";
 
-const AppHeaderWrapper = () => {
+const AppHeaderForHomePage: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const pathname = usePathname();
 
+  let content: React.ReactNode;
   if (pathname !== "/") {
-    return <AppHeader />;
+    content = <>{children}</>;
+  } else {
+    content = null;
   }
-  return null;
+
+  return content;
 };
 
-export default AppHeaderWrapper;
+export default AppHeaderForHomePage;

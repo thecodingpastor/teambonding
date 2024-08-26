@@ -1,29 +1,43 @@
 import { create } from "zustand";
 
+type sidebarModeType = "nav" | "cart" | null;
+
 export type UIState = {
-  sidebarIsOpen: boolean;
+  sidebarMode: sidebarModeType;
   routeLoading: boolean;
+  modalIsOpen: string;
+  sidebarIsOpen: boolean;
 };
 
 export type UIActions = {
-  setSidebarIsOpen: (mode: boolean) => void;
+  setSidebarMode: (mode: sidebarModeType) => void;
+  setOpenModal: (mode: string) => void;
   setRouteLoading: (routeLoading: boolean) => void;
+  setSidebarIsOpen: (mode: boolean) => void;
 };
 
 export type UIStore = UIState & UIActions;
 
 export const defaultInitState: UIState = {
-  sidebarIsOpen: false,
+  sidebarMode: null,
   routeLoading: false,
+  sidebarIsOpen: false,
+  modalIsOpen: "",
 };
 
 const useUIStore = create<UIStore>((set) => ({
+  ...defaultInitState,
+  setOpenModal(mode) {
+    set({ modalIsOpen: mode });
+  },
   sidebarIsOpen: false,
   setSidebarIsOpen(mode: boolean) {
     set({ sidebarIsOpen: mode });
   },
-  routeLoading: false,
-  setRouteLoading(routeLoading: boolean) {
+  setSidebarMode(mode) {
+    set({ sidebarMode: mode });
+  },
+  setRouteLoading(routeLoading) {
     set({ routeLoading });
   },
 }));
