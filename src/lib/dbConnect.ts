@@ -13,7 +13,7 @@ const dbConnect = async () => {
   }
 
   try {
-    mongoose.connect(process.env.MONGO_URI as string, {
+    mongoose.connect(process.env.LIVE_MONGO_URI as string, {
       //   dbName: "irep",
       //   bufferCommands: true,
     });
