@@ -15,22 +15,21 @@ const AboutSection = () => {
         sizes="300vw"
       />
       <div className="flex-1 shrink-0 flex flex-col gap-6 md:gap-0 lg:pt-6 -order-1 md:order-1">
-        <AnimatedInView animation="slideLeft">
-          <h3 className="mb-2">About Us</h3>
-          <div className="my-auto flex flex-col gap-2 lg:gap-7">
-            <p>
-              We specialize in creating memorable and impactful team bonding
-              experiences for corporate organizations and groups.{" "}
-            </p>
-            <p>
-              Our activities are designed to foster collaboration, enhance
-              communication, and build stronger, more cohesive teams.
-            </p>
-          </div>
-          <Link href="/about">
-            <Button className="max-w-max mt-2">Learn more </Button>
-          </Link>
-        </AnimatedInView>
+        {/* <AnimatedInView animation="slideLeft"> </AnimatedInView> */}
+        <h3 className="mb-2">About Us</h3>
+        <div className="my-auto flex flex-col gap-2 lg:gap-7">
+          <p>
+            We specialize in creating memorable and impactful team bonding
+            experiences for corporate organizations and groups.{" "}
+          </p>
+          <p>
+            Our activities are designed to foster collaboration, enhance
+            communication, and build stronger, more cohesive teams.
+          </p>
+        </div>
+        <Link href="/about">
+          <Button className="max-w-max mt-2">Learn more </Button>
+        </Link>
       </div>
     </div>
   );

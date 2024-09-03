@@ -50,7 +50,7 @@ const ContactPage = () => {
               <p>Follow us:</p>
               <Socials />
             </div>
-            <p>Let's build stronger teams together!</p>
+            <p>Let&apos;s build stronger teams together!</p>
           </div>
         </div>
         <div className="flex-1 shrink-0 -order-1 md:order-1">

@@ -16,7 +16,7 @@ const LoginPage = () => {
     if (session?.data?.user?.email) {
       replace("/");
     }
-  }, [session]);
+  }, [session, replace]);
 
   const [data, setData] = useState({ email: "", password: "" });
   const [Loading, setLoading] = useState(false);

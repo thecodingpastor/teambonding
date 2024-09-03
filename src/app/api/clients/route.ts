@@ -1,74 +1,95 @@
+import { deleteImageInCloud, saveImageInCloud } from "@/lib/cloudinary";
 import dbConnect from "@/lib/dbConnect";
+import { getErrorMessage } from "@/lib/getErrorMessage";
+import { ImageType } from "@/lib/validateImage";
 import Client from "@/models/clientModel";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export const GET = async () => {
+// export const config = { api: { bodyParser: { sizeLimit: "5mb" } } };
+
+export const GET = async (req: NextRequest) => {
+  const { searchParams } = new URL(req.url);
+
+  // Retrieve the 'category' query parameter
+  const category = searchParams.get("category");
   try {
     await dbConnect();
-    const clients = await Client.find();
+    const clients = category
+      ? await Client.find().where({ category }).select("-createdAt -updatedAt")
+      : await Client.find().sort("createdAt");
+
     return new NextResponse(JSON.stringify(clients));
   } catch (err: any) {
     return NextResponse.json({ message: "Something went wrong" });
   }
 };
 
-export const POST = async (req: Request) => {
-  const { name, logoUrl, status, description, images } = await req.json();
-  if (!name || !status || images?.length < 1 || !description || !logoUrl) {
-    return new NextResponse(
-      JSON.stringify({ message: "All fields are required." }),
-      { status: 400 }
-    );
-  }
+export const POST = async (req: NextRequest) => {
+  const { name, category, description, images } = await req.json();
+
+  const pendingImageResults: any[] = [];
+
+  images.forEach((img: ImageType) => {
+    const imageUpload = saveImageInCloud(img?.url);
+    pendingImageResults.push(imageUpload);
+  });
 
   try {
+    const imageResults = await Promise.all(pendingImageResults);
     await dbConnect();
+
     const client = await Client.create({
       name,
-      logoUrl,
+      category,
       description,
-      images,
-      status,
+      images: imageResults,
     });
-    if (!client) {
-      return new NextResponse(
-        JSON.stringify({ message: "Could not create client." }),
-        { status: 400 }
-      );
-    }
 
     return new NextResponse(JSON.stringify(client));
   } catch (err: any) {
-    return NextResponse.json({ message: "Something went wrong" });
+    return NextResponse.json({
+      message: getErrorMessage(err) || "Could not create a new client",
+    });
   }
 };
 
-export const PATCH = async (req: Request) => {
-  const {
-    name,
-    status,
-    description,
-    // logoUrl, images
-  } = await req.json();
+// Deletes a client image
+export const DELETE = async (req: NextRequest) => {
+  const { fileId, clientId } = await req.json();
+
+  if (!fileId || !clientId) {
+    return NextResponse.json({ message: "File ID and client ID missing" });
+  }
 
   try {
-    await dbConnect();
-    const client = await Client.create({
-      name,
-      description,
-      status,
-      //   logoUrl,
-      //   images,
-    });
-    if (!client) {
+    const result = await deleteImageInCloud(fileId as string);
+
+    if (result === null) {
       return new NextResponse(
-        JSON.stringify({ message: "Could not create client." }),
+        JSON.stringify({ message: "File already deleted or not found." }),
         { status: 400 }
       );
     }
 
+    const client = await Client.findOne({ _id: clientId });
+
+    const updatedImages = client.images.filter(
+      (img: any) => img.fileId !== fileId
+    );
+
+    client.images = updatedImages;
+    await client.save({ new: true });
+
+    if (!client?._id) {
+      if (!fileId || !clientId) {
+        return NextResponse.json({ message: "File cannot be found!" });
+      }
+    }
+
     return new NextResponse(JSON.stringify(client));
-  } catch (err: any) {
-    return NextResponse.json({ message: "Something went wrong" });
+  } catch (err) {
+    return NextResponse.json({
+      message: "Could not delete image from Database",
+    });
   }
 };

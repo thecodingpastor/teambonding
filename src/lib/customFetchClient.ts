@@ -1,4 +1,5 @@
-import { AppGetSession } from "@/auth/get-session";
+import getAccessToken from "./auth";
+
 import { getErrorMessage } from "./getErrorMessage";
 
 interface FetchOptions {
@@ -7,11 +8,14 @@ interface FetchOptions {
   body?: any;
 }
 
-const customFetch = async (endpoint: string, options: FetchOptions = {}) => {
+const customFetchClient = async (
+  endpoint: string,
+  options: FetchOptions = {}
+) => {
   const { method = "GET", headers, body } = options;
   const url = `${process.env.NEXT_PUBLIC_BASE_URL}${endpoint}`;
 
-  const data: any = await AppGetSession();
+  const data: any = await getAccessToken();
   const accessToken = data?.user?.accessToken;
 
   const config: RequestInit = {
@@ -40,4 +44,4 @@ const customFetch = async (endpoint: string, options: FetchOptions = {}) => {
   }
 };
 
-export default customFetch;
+export default customFetchClient;

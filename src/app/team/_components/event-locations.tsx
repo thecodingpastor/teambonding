@@ -40,6 +40,7 @@ const EventLocations = () => {
               "relative w-[220px] h-[160px] rounded-xl overflow-hidden",
               classes.Container
             )}
+            key={item.label}
           >
             <Image
               src={item.image}

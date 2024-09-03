@@ -11,18 +11,20 @@ interface MyDropdownProps {
   triggerLabel: React.ReactNode;
   options: string[];
   onChange: any;
+  defaultValue?: any;
   reset?: boolean;
   //   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 const MyDropdown = ({
   className,
+  defaultValue = "",
   triggerLabel,
   options,
   onChange,
   reset,
 }: MyDropdownProps) => {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState(defaultValue || "");
 
   const closeDropdown = () => setOpen(false);
   const openDropdown = () => {

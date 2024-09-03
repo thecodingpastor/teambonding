@@ -28,27 +28,26 @@ const WhyChooseUs = () => {
       <h3 className="sm:text-center sm:mx-auto">Why Choose Us?</h3>
       <div className="flex flex-col md:flex-row gap-10 mt-10 sm:mx-auto sm:max-w-max">
         {data.map((item, index) => (
-          <AnimatedInView
-            animation={
-              index === 0 ? "slideRight" : index === 1 ? "zoom" : "slideLeft"
-            }
-            key={item.id}
-          >
-            <div className="max-w-[300px]">
-              <div className="max-w-[200px] h-[200px] relative">
-                <Image
-                  src={item.img}
-                  alt={item.title}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <h4 className="text-color-green text-2xl mb-2 font-bold">
-                {item.title}
-              </h4>
-              <p>{item.text}</p>
+          // <AnimatedInView
+          //   animation={
+          //     index === 0 ? "slideRight" : index === 1 ? "zoom" : "slideLeft"
+          //   }
+          // >          </AnimatedInView>
+
+          <div className="max-w-[300px]" key={item.id}>
+            <div className="max-w-[200px] h-[200px] relative">
+              <Image
+                src={item.img}
+                alt={item.title}
+                fill
+                className="object-contain"
+              />
             </div>
-          </AnimatedInView>
+            <h4 className="text-color-green text-2xl mb-2 font-bold">
+              {item.title}
+            </h4>
+            <p>{item.text}</p>
+          </div>
         ))}
       </div>
     </div>

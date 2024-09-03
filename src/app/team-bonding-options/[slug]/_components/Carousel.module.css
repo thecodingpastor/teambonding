@@ -22,7 +22,8 @@
   flex-direction: column;
   gap: 10px;
   align-items: flex-start;
-  /* border: 3px solid red; */
+  /* border: 3px solid; */
+  overflow: hidden;
 
   @media (max-width: 768px) {
     /* padding-right: 20px; */

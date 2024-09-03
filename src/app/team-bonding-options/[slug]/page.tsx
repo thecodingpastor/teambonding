@@ -6,6 +6,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "@/components/layout/Link";
 import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
+import customFetch from "@/lib/customFetch";
 
 // METADATA
 export async function generateMetadata({
@@ -58,6 +59,7 @@ const SingleActivityPage = async ({
   // searchParams: { [key: string]: string | string[] | undefined };
 }) => {
   const activity = await fetchActivity(slug);
+  const activityData = await customFetch("/api/clients?category=" + slug);
 
   if (!activity) {
     return notFound();
@@ -91,7 +93,7 @@ const SingleActivityPage = async ({
         <h3 className="">{name}</h3>
       </div>
       <p>{intro}</p>
-      <ActivityCarousel />
+      {activityData?.length > 0 && <ActivityCarousel data={activityData} />}
       <p>{lead}</p>
       <div className="my-10 mb-6">
         <div className="mb-6">

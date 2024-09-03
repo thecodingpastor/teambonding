@@ -6,7 +6,11 @@ import styles from "./Carousel.module.css";
 import { CarouselData } from "./CarouselData";
 import Image from "next/image";
 
-const BrandsCarousel = () => {
+const BrandsCarousel = ({
+  carouselData,
+}: {
+  carouselData: { id: string; name: string; image: string }[];
+}) => {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
     Autoplay({
       stopOnInteraction: false,
@@ -19,13 +23,16 @@ const BrandsCarousel = () => {
     <div className={styles.embla}>
       <div className={styles.embla__viewport} ref={emblaRef}>
         <div className={styles.embla__container}>
-          {CarouselData.map(({ id, image, label }) => (
+          {carouselData.map(({ id, image, name }) => (
             <div className={styles.embla__slide} key={id}>
               <Image
                 className={styles.embla__slide__img}
                 src={image}
-                alt={label}
+                alt={name}
                 sizes="400vw"
+                width={250}
+                height={200} // fill
+                // className="250px"
               />
             </div>
           ))}

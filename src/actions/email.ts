@@ -76,7 +76,6 @@ export const submitForm = async (data: any) => {
 
     return res;
   } catch (err: any) {
-    console.log({ err });
     throw new Error(getErrorMessage(err) || "Something went wrong");
   }
 };

@@ -1,15 +1,17 @@
-"use client";
-
+import { Link } from "@/components/layout/Link";
 import { Button } from "@/components/ui/button";
-import useUIStore from "@/store/uiStore";
 import { FaPlus } from "react-icons/fa";
 
-const AddClientButton = () => {
-  const setOpenModal = useUIStore((state) => state.setOpenModal);
+const AddClientButton = ({}) => {
   return (
-    <Button hideArrow onClick={() => setOpenModal("add-client")}>
-      Add Client <FaPlus />
-    </Button>
+    <Link href="/dashboard/add-client">
+      <Button
+        hideArrow
+        className="bg-white text-black border-2 border-black md:text-lg"
+      >
+        Add Client <FaPlus />
+      </Button>
+    </Link>
   );
 };
 

@@ -6,19 +6,21 @@ const ClientSchema = new Schema(
       type: String,
       required: [true, "Please provide the name of the client."],
     },
-    logoUrl: {
+    category: {
       type: String,
-      required: [true, "Please provide the name of the client."],
-    },
-    status: {
-      type: String,
-      default: "pending",
       enum: {
-        values: ["pending", "live"],
-        message: "Invalid status entered",
+        values: [
+          "outdoor",
+          "indoor",
+          "sport-events",
+          "wellness-programmes",
+          "customized",
+          "others",
+        ],
+        message: "Invalid category entered",
       },
     },
-    images: [{ label: String, id: String }],
+    images: [{ url: String, fileId: String }],
     description: String,
   },
   { timestamps: true }

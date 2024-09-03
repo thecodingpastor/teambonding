@@ -67,7 +67,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground !font-mulish font-normal text-lg;
+    @apply bg-background text-foreground !font-mulish font-normal text-lg overflow-x-hidden;
   }
 
   h1,
