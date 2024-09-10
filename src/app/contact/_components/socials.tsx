@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import React from "react";
 import { BsTwitterX } from "react-icons/bs";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
@@ -16,11 +17,11 @@ const data = [
   {
     id: "3",
     Icon: FaFacebookF,
-    link: "https://www.instagram.com/team_bonding_nigeria/",
+    link: "https://www.facebook.com/profile.php?id=61565692408924",
   },
 ];
 
-const Socials = () => {
+const Socials = ({ white = false }) => {
   return (
     <div className="flex gap-2">
       {data.map(({ id, Icon, link }) => (
@@ -28,7 +29,10 @@ const Socials = () => {
           href={link}
           target="_blank"
           key={id}
-          className="w-[25px] h-[25px] flex items-center justify-center rounded-full p-[4px] text-color-orange border border-color-orange "
+          className={cn(
+            "w-[25px] h-[25px] flex items-center justify-center rounded-full p-[4px] text-color-orange border border-color-orange ",
+            white && "text-white border-white"
+          )}
         >
           <Icon />
         </a>

@@ -3,6 +3,7 @@ import Image from "next/image";
 import navList from "../app-header/navData";
 import { Link } from "../Link";
 import AddressSpan from "./address-span";
+import Socials from "@/app/contact/_components/socials";
 
 const AppFooter = () => {
   return (
@@ -18,8 +19,9 @@ const AppFooter = () => {
           <Image
             src={WhiteLogo}
             alt=""
-            width={120}
-            className="w-[150px]"
+            width={200}
+            height={150}
+            className="w-[200px] sm:w-[250px]"
             sizes="300vw"
           />
         </Link>
@@ -29,6 +31,7 @@ const AppFooter = () => {
               {item.label}
             </Link>
           ))}
+          <Link href="/contact">Contact</Link>
         </div>
         <hr className="bg-white text-white h-[1px] w-full" />
         <div className="text-center font-light flex flex-col gap-3">
@@ -42,16 +45,9 @@ const AppFooter = () => {
               booking@teambondingnigeria.com
             </a>
           </p>
-          <p>
-            Follow us on{" "}
-            <a
-              href="https://www.instagram.com/team_bonding_nigeria/"
-              target="_blank"
-              className="underline font-bold"
-            >
-              Instagram
-            </a>
-          </p>
+          <div className="flex gap-4 items-center justify-center !text-white">
+            Follow us on <Socials white />
+          </div>
         </div>
       </div>
     </footer>

@@ -20,7 +20,7 @@ const ContactPage = () => {
         Organizing an ideal team bonding event for your team is simpler than you
         imagine. Please take a moment to provide us with some information, so we
         can serve you better. One of our team members will reach out to you
-        promptly. Meanwhile, feel free to explore our FAQ section.
+        promptly.
       </p>
       <div className="flex gap-10 py-20 flex-col md:flex-row ">
         <div className="flex-1 shrink-0">

@@ -5,7 +5,6 @@ import Autoplay from "embla-carousel-autoplay";
 import styles from "./Carousel.module.css";
 import Image from "next/image";
 
-import { CarouselData } from "./data";
 import { FaArrowLeft, FaArrowRight, FaChevronRight } from "react-icons/fa";
 import { useCallback, useEffect, useState } from "react";
 import GalleryModal from "../../_components/gallery-modal";

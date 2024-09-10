@@ -1,5 +1,5 @@
 import WhiteLogo from "@/assets/images/logo_white.webp";
-import BlackLogo from "@/assets/images/logo_black.webp";
+import Logo from "@/assets/images/logo.webp";
 import LandingAbout from "@/assets/images/landing-about.webp";
 import Experience from "@/assets/images/experience.webp";
 import Solutions from "@/assets/images/solutions.webp";
@@ -60,7 +60,7 @@ export {
   Kade,
   Quotes,
   WhiteLogo,
-  BlackLogo,
+  Logo,
   LandingAbout,
   Experience,
   Solutions,

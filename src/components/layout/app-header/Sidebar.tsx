@@ -3,7 +3,7 @@
 import navList from "./navData";
 import { Link } from "../Link";
 import Image from "next/image";
-import { BlackLogo } from "@/assets";
+import { Logo } from "@/assets";
 import { cn } from "@/lib/utils";
 import useUIStore from "@/store/uiStore";
 import Overlay from "../Overlay";
@@ -39,7 +39,7 @@ const Sidebar = () => {
           onClick={() => setSidebarIsOpen(false)}
         >
           <Image
-            src={BlackLogo}
+            src={Logo}
             width={80}
             alt="Team Bonding Logo"
             className="w-[80px]"
