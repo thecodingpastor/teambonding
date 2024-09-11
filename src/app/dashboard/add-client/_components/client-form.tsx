@@ -52,9 +52,9 @@ const ClientForm = ({ client }: any) => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    if (Name.trim().length < 4) {
+    if (Name.trim().length < 2) {
       return AppToast({
-        message: "Client brand name cannot be less than 4 characters.",
+        message: "Client brand name cannot be less than 2 characters.",
         duration: 6000,
       });
     }

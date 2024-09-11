@@ -20,6 +20,7 @@ const QuoteForm = () => {
     otherLocation: "",
     numberOfParticipants: "",
     age: "",
+    objective: "",
     otherHow: "",
     message: "",
   };
@@ -67,11 +68,16 @@ const QuoteForm = () => {
       otherHow,
       otherLocation,
       phone,
+      objective,
     } = data;
 
     if (name?.trim()?.length < 5 || name?.trim()?.length > 100)
       return AppToast({
         message: "Your full name should have between 5 and 100 characters.",
+      });
+    if (objective?.trim()?.length < 5 || objective?.trim()?.length > 100)
+      return AppToast({
+        message: "Objective/goal should have between 5 and 100 characters.",
       });
 
     if (company.trim()?.length < 5 || company?.trim()?.length > 100)
@@ -135,6 +141,7 @@ const QuoteForm = () => {
         email,
         message,
         name,
+        objective,
         numberOfParticipants,
         eventType: TypeOfEvent,
         startDate,
@@ -229,6 +236,11 @@ const QuoteForm = () => {
           placeholder="Age Range of Participants"
           value={data.age}
           onChange={(e) => setData({ ...data, age: e.target.value })}
+        />
+        <Input
+          placeholder="Event Objective/Goal"
+          value={data.objective}
+          onChange={(e) => setData({ ...data, objective: e.target.value })}
         />
         <DatePickerWithRange onSelectDate={setDate} date={date} />
         <MyDropdown

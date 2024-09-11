@@ -14,6 +14,7 @@ export const submitForm = async (data: any) => {
     endDate,
     numberOfParticipants,
     otherHow,
+    objective,
     otherLocation,
     eventType,
     Location,
@@ -62,6 +63,7 @@ export const submitForm = async (data: any) => {
       <p><b>Name:</b> ${name}</p>
       <p><b>Company Name:</b> ${company}</p>
       <p><b>Age Range:</b> ${age}</p>
+      <p><b>Objective/Goal:</b> ${objective}</p>
       <p><b>Number Of Participants:</b> ${numberOfParticipants}</p>
       <p><b>Email Address:</b> ${email}</p>
       <p><b>Phone Number:</b> ${phone}</p>
