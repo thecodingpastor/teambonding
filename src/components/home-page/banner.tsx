@@ -15,7 +15,7 @@ const Banner = () => {
           src={WhiteLogo}
           alt=""
           sizes="300vw"
-          className="max-w-[200px] mx-auto "
+          className="max-w-[200px] md:max-w-[300px] mx-auto "
         />
         <p className="max-w-[400px] min-w-[250px] px-2 text-center mt-4">
           Build <span className="text-color-orange">Stronger</span> Teams

@@ -27,10 +27,7 @@ const GetQuoteButton = ({
       {isLoggedIn ? (
         <Button onClick={handleSignOut}>Logout</Button>
       ) : (
-        <Button
-          className="uppercase font-bold"
-          onClick={() => setOpenModal("quote")}
-        >
+        <Button className="font-bold" onClick={() => setOpenModal("quote")}>
           {text || "Get a Quote"}
         </Button>
       )}

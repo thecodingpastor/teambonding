@@ -12,8 +12,6 @@ export async function middleware(req: NextRequest) {
   if (!res?.user?.email && pathname.startsWith("/dashboard")) {
     return NextResponse.redirect(new URL("/", req.url));
   }
-
-  // Allow the request to proceed
   return NextResponse.next();
 }
 

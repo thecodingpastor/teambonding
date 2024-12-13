@@ -23,9 +23,12 @@
 
 .embla__slide__img {
   display: block;
+  height: 150px;
+  width: 200px;
+  /* 
   width: 100%;
   height: auto;
-  min-height: 130px;
+  min-height: 130px; */
   border-radius: 10px;
 
   @media (max-width: 600px) {

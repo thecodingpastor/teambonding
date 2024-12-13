@@ -1,7 +1,7 @@
 import { Aleo, Mulish } from "next/font/google";
 
 export const mulishFont = Mulish({
-  weight: ["300", "400", "600"],
+  weight: ["300", "400", "600", "700"],
   // display: "swap",
   subsets: ["latin"],
   variable: "--font-mulish",

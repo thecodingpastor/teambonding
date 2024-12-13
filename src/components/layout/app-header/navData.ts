@@ -1,5 +1,9 @@
 const navList = [
   {
+    label: "home",
+    link: "/",
+  },
+  {
     label: "about",
     link: "/about",
   },

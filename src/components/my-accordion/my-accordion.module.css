@@ -1,0 +1,23 @@
+.Content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 500ms;
+}
+
+.input {
+  display: none;
+}
+
+.input:checked + label + .Content {
+  max-height: 200vh;
+  /* max-height: 100vh; */
+  /* max-height: max-content; */
+}
+
+.Svg {
+  transition: transform 500ms;
+}
+
+.input:checked + label .Svg {
+  transform: rotate(180deg);
+}
