@@ -1,46 +1,36 @@
 "use client";
 
-import React, { useEffect, useRef, ReactNode, CSSProperties } from "react";
+import React, { useEffect, useRef, ReactNode } from "react";
 
-type AnimationType = "fade" | "slide" | "zoom" | "slideLeft" | "slideRight";
+type AnimationType = "fade" | "slide" | "zoom";
 
 interface AnimatedInViewProps {
   children: ReactNode;
-  animation?: AnimationType;
   duration?: number;
+  opacity?: number;
+  scale?: number;
+  delay?: number;
+  className?: string;
   threshold?: number;
+  x?: number; // Starting X position
+  y?: number; // Starting Y position
+  repeat?: boolean; // Optional feature to animate multiple times
 }
-
-const animationStyles: Record<AnimationType, CSSProperties> = {
-  fade: {
-    transition: "opacity 400ms ease-in-out",
-    opacity: 0,
-  },
-  slide: {
-    transition: "transform 400ms ease-in-out",
-    transform: "translateY(100px)",
-  },
-  slideLeft: {
-    transition: "transform 400ms ease-in-out",
-    transform: "translateX(100px)",
-  },
-  slideRight: {
-    transition: "transform 400ms ease-in-out",
-    transform: "translateX(-100px)",
-  },
-  zoom: {
-    transition: "transform 400ms ease-in-out",
-    transform: "scale(0.9)",
-  },
-};
 
 const AnimatedInView: React.FC<AnimatedInViewProps> = ({
   children,
-  animation = "zoom",
+  className = "",
   duration = 0.3,
+  delay = 0,
   threshold = 0.3,
+  opacity = 1,
+  scale = 1,
+  x = 0,
+  y = 0,
+  repeat = false,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
+  const hasAnimated = useRef(false); // Track if animation has occurred
 
   useEffect(() => {
     const node = ref.current;
@@ -50,40 +40,20 @@ const AnimatedInView: React.FC<AnimatedInViewProps> = ({
       (entries) => {
         entries.forEach((entry) => {
           const target = entry.target as HTMLElement;
+
           if (entry.isIntersecting) {
-            switch (animation) {
-              case "fade":
-                target.style.opacity = "1";
-                break;
-              case "slide":
-                target.style.transform = "translateY(0)";
-                break;
-              case "slideLeft":
-                target.style.transform = "translateX(0)";
-                break;
-              case "slideRight":
-                target.style.transform = "translateX(0)";
-                break;
-              case "zoom":
-                target.style.transform = "scale(1)";
-                break;
-              default:
-                break;
-            }
-          } else {
-            switch (animation) {
-              case "fade":
-                target.style.opacity = "0";
-                break;
-              case "slide":
-                target.style.transform = "translateY(100px)";
-                break;
-              case "zoom":
-                target.style.transform = "scale(0.5)";
-                break;
-              default:
-                break;
-            }
+            if (!repeat && hasAnimated.current) return;
+
+            target.style.transition = `transform ${duration}s ease-in-out, opacity ${duration}s ease-in-out`;
+            target.style.transitionDelay = `${delay}s`;
+            target.style.transform = "translate(0, 0) scale(1)";
+            target.style.opacity = "1";
+
+            hasAnimated.current = true; // Mark as animated
+          } else if (repeat) {
+            // Reset styles when element leaves viewport if repeat is true
+            target.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+            target.style.opacity = `${opacity}`;
           }
         });
       },
@@ -95,14 +65,17 @@ const AnimatedInView: React.FC<AnimatedInViewProps> = ({
     return () => {
       observer.unobserve(node);
     };
-  }, [animation, threshold]);
+  }, [duration, delay, threshold, x, y, opacity, scale, repeat]);
 
   return (
     <div
       ref={ref}
+      className={className}
       style={{
-        ...animationStyles[animation],
-        transitionDuration: `${duration}s`,
+        transform: `translate(${x}px, ${y}px) scale(${scale})`,
+        opacity: opacity,
+        transition: `transform ${duration}s ease-in-out, opacity ${duration}s ease-in-out`,
+        transitionDelay: `${delay}s`,
       }}
     >
       {children}

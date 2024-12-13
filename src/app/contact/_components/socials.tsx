@@ -1,3 +1,4 @@
+import { Link } from "@/components/layout/Link";
 import { cn } from "@/lib/utils";
 import React from "react";
 import { BsTwitterX } from "react-icons/bs";
@@ -24,6 +25,10 @@ const data = [
 const Socials = ({ white = false }) => {
   return (
     <div className="flex gap-2">
+      <Link
+        href="#"
+        className="hidden w-0 h-0 opacity-0 pointer-events-none"
+      ></Link>
       {data.map(({ id, Icon, link }) => (
         <a
           href={link}

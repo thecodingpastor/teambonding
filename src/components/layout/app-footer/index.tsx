@@ -7,7 +7,7 @@ import Socials from "@/app/contact/_components/socials";
 
 const AppFooter = () => {
   return (
-    <footer className="max-w-[100vw] relative h-auto mt-20 px-10 py-20">
+    <footer className="max-w-[100vw] relative h-auto px-10 py-20">
       <Image
         src={FooterBG}
         alt=""

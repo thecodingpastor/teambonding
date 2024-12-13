@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Beach, IITA, Lakowe, Office, Parks } from "@/assets";
 
 import classes from "./style.module.css";
+import AnimatedInView from "@/components/animations";
 
 const data = [
   {
@@ -34,13 +35,24 @@ const EventLocations = () => {
       <h3 className="mb-6">Event Locations</h3>
       <p>Recommended venues for your team bonding activities</p>
       <div className="flex flex-wrap gap-6 items-center justify-center max-w-[800px] mx-auto mt-10 ">
-        {data.map((item) => (
-          <div
+        {data.map((item, index) => (
+          //   <AnimatedInView
+          //   key={item.name}
+          //   repeat
+          //   opacity={0.5}
+          //   scale={1.05}
+          //   delay={0.1 * index}
+          // ></AnimatedInView>
+          <AnimatedInView
+            key={item.label}
+            repeat
+            opacity={0.5}
+            scale={1.05}
+            delay={0.1 * index}
             className={cn(
               "relative w-[220px] h-[160px] rounded-xl overflow-hidden",
               classes.Container
             )}
-            key={item.label}
           >
             <Image
               src={item.image}
@@ -55,7 +67,7 @@ const EventLocations = () => {
             <p className="text-white absolute z-10 bottom-0 p-3">
               {item.label}
             </p>
-          </div>
+          </AnimatedInView>
         ))}
       </div>
     </div>

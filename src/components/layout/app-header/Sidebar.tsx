@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import useUIStore from "@/store/uiStore";
 import Overlay from "../Overlay";
 import { usePathname } from "next/navigation";
+import AnimatedInView from "@/components/animations";
 
 const Sidebar = () => {
   const sidebarIsOpen = useUIStore((state) => state.sidebarIsOpen);
@@ -17,21 +18,42 @@ const Sidebar = () => {
     <>
       <aside
         className={cn(
-          "w-[250px] fixed z-30 top-[65px] right-0 h-[calc(100vh-65px)] bg-background transition duration-300 md:hide-completely flex flex-col",
+          "w-[250px] fixed z-50 top-[65px] right-0 h-[calc(100vh-65px)] bg-background transition duration-300 md:hide-completely flex flex-col",
           sidebarIsOpen ? "translate-x-0" : "translate-x-[250px]"
         )}
       >
-        <nav className="flex flex-col gap-10 uppercase font-bold px-4 pt-5 ">
-          {navList.map((item) => (
-            <Link
-              href={item.link}
+        <nav className="flex flex-col gap-6 uppercase font-bold px-4 pt-10 ">
+          {navList.map((item, index) => (
+            <AnimatedInView
+              delay={0.1 * index}
+              x={100}
+              opacity={0}
               key={item.link}
-              className={pathname === item.link ? "text-color-orange" : ""}
+              repeat
+            >
+              <Link
+                href={item.link}
+                className={pathname === item.link ? "text-color-orange" : ""}
+                onClick={() => setSidebarIsOpen(false)}
+              >
+                {item.label}
+              </Link>
+            </AnimatedInView>
+          ))}
+          <AnimatedInView
+            delay={0.1 * navList.length}
+            x={100}
+            opacity={0}
+            repeat
+          >
+            <Link
+              href="/contact"
+              className={pathname === "/contact" ? "text-color-orange" : ""}
               onClick={() => setSidebarIsOpen(false)}
             >
-              {item.label}
+              Contact
             </Link>
-          ))}
+          </AnimatedInView>
         </nav>
         <Link
           href="/"

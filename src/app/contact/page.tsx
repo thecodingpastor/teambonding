@@ -1,6 +1,7 @@
 import QuoteForm from "@/components/quote-form";
 import Socials from "./_components/socials";
 import { Metadata } from "next";
+import AnimatedInView from "@/components/animations";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -9,21 +10,22 @@ export const metadata: Metadata = {
 const ContactPage = () => {
   return (
     <div className="max-w-[900px] mx-auto px-4">
-      <div className="mt-32 mb-16 ">
+      <AnimatedInView x={-20} className="mt-32 mb-16 ">
         <h3>
           Ready to <span className="text-color-orange">Strengthen</span> Your
           Team?
         </h3>
         <h3>Get a Quote Today.</h3>
-      </div>
-      <p>
+      </AnimatedInView>
+      <AnimatedInView delay={0.2} y={20}>
         Organizing an ideal team bonding event for your team is simpler than you
         imagine. Please take a moment to provide us with some information, so we
         can serve you better. One of our team members will reach out to you
         promptly.
-      </p>
+      </AnimatedInView>
+
       <div className="flex gap-10 py-20 flex-col md:flex-row ">
-        <div className="flex-1 shrink-0">
+        <AnimatedInView x={-20} className="flex-1 shrink-0">
           <h3 className="text-3xl mb-8">Contact Us</h3>
           <div className="md:pl-6 text-[18px]">
             <p className="mb-6">Address:</p>
@@ -52,10 +54,10 @@ const ContactPage = () => {
             </div>
             <p>Let&apos;s build stronger teams together!</p>
           </div>
-        </div>
-        <div className="flex-1 shrink-0 -order-1 md:order-1">
+        </AnimatedInView>
+        <AnimatedInView x={20} className="flex-1 shrink-0 -order-1 md:order-1">
           <QuoteForm />
-        </div>
+        </AnimatedInView>
       </div>
     </div>
   );

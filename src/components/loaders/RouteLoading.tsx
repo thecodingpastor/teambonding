@@ -18,7 +18,7 @@ const RouteLoading = () => {
   }, []);
 
   return (
-    <div className="w-[100vw] fixed z-[50000000] h-2 top-0 left-0">
+    <div className="w-[100vw] fixed z-[50000000] h-[2px] top-0 left-0">
       <div
         style={{ width: `${Progress}%` }}
         className="loading_bar bg-color-orange h-full"

@@ -39,7 +39,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={mulish + " " + aleo}>
         <RouteLoadingProvider>
-          <div className="flex flex-col min-h-[100vh]">
+          <div className="flex flex-col">
             <NextAuthProvider>
               <Toaster
                 position="bottom-left"
@@ -52,7 +52,7 @@ export default function RootLayout({
               </AppHeaderForHomePage>
               <Sidebar />
 
-              <main className="grow">{children}</main>
+              <main className="grow h-full">{children}</main>
               <AppFooter />
               <div id="modal-root"></div>
             </NextAuthProvider>

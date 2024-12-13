@@ -195,7 +195,7 @@ const QuoteForm = () => {
       <p className="text-sm text-center mb-5">
         {" "}
         Complete this form to get started or call{" "}
-        <a href="tel:+234 803 262 2079">+234 803 262 2079</a>{" "}
+        <a href="tel:+2348032622079">+234 803 262 2079</a>{" "}
       </p>
       <form className="w-full space-y-3 max-w-[500px] mx-auto">
         <Input
