@@ -44,7 +44,7 @@ const teamBondingOptions = [
 
 const ActivitiesGrid = () => {
   return (
-    <div className="max-w-[900px] mx-auto px-4 grid grid-cols-team-fill-minmax gap-4 py-20">
+    <div className="max-w-[900px] justify-center mx-auto px-4 grid grid-cols-team-fill-minmax gap-4 py-20">
       {teamBondingOptions.map(({ image, intro, slug, name }, index) => (
         <AnimatedInView
           scale={0.97}

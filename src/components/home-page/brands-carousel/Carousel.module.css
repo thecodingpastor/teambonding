@@ -23,8 +23,11 @@
 
 .embla__slide__img {
   display: block;
-  height: 150px;
+  height: 120px;
   width: 200px;
+  object-fit: contain;
+  background: white;
+  padding: 10px;
   /* 
   width: 100%;
   height: auto;

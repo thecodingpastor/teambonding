@@ -18,7 +18,7 @@ const TeamPage = () => {
         <p className="text-center text-lg px-4 mt-20 ">
           Meet the Team Behind TeamBondingNigeria
         </p>
-        <div className="grid grid-cols-auto-fill-minmax gap-4 pt-10 pb-20 max-w-[700px] mx-auto px-4  ">
+        <div className="grid grid-cols-auto-fill-minmax justify-center gap-4 pt-10 pb-20 max-w-[700px] mx-auto px-4  ">
           {TeamData.map((item, index) => (
             <AnimatedInView
               key={item.name}
