@@ -72,7 +72,7 @@ const SingleActivityPage = async ({
   const { activities, intro, name } = teamBondingOption;
 
   return (
-    <div className="-mb-28">
+    <>
       <div className="max-w-[1100px] mx-auto px-4 relative">
         <Link
           href="/team-bonding-options"
@@ -98,7 +98,7 @@ const SingleActivityPage = async ({
       <div className=" bg-[#EEF0F4] py-16 sm:py-24">
         <div className="max-w-[1100px] !mx-auto px-4 ">
           <h3 className="text-center mb-10 ">Activities</h3>
-          <div className="grid grid-cols-team-fill-minmax gap-6 max-w-[300px] sm:max-w-[600px] md:max-w-[800px] mx-auto">
+          <div className="grid grid-cols-team-fill-minmax gap-4 max-w-[900px] justify-center mx-auto">
             {activities?.map((item, index) => (
               <AnimatedInView
                 repeat
@@ -120,7 +120,7 @@ const SingleActivityPage = async ({
                   <h4 className="font-semibold text-[22px] my-3 ">
                     {item.name}
                   </h4>
-                  <p className="leading-5 text-sm sm:text-[16px] mb-4 text-justify">
+                  <p className="leading-5 text-sm sm:text-[16px] mb-4">
                     {item.intro}
                   </p>
                   <Link
@@ -140,7 +140,7 @@ const SingleActivityPage = async ({
           <GetQuoteButton isLoggedIn={false} text="Request a Quote" />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

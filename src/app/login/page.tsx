@@ -45,7 +45,7 @@ const LoginPage = () => {
     }
   };
   return (
-    <div className="max-w-[500px] mx-auto px-4 mt-10">
+    <div className="max-w-[500px] mx-auto px-4 mt-10 mb-20">
       <h3 className="text-center ">Login</h3>
       <form className="space-y-5 mt-10" onSubmit={handleLogin}>
         <Input
