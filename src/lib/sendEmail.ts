@@ -7,12 +7,11 @@ interface SendEmailProps {
 }
 
 const SendEmail = async ({ html, replyTo }: SendEmailProps) => {
+  // I send email from iep's email address to teambonding's zoho's email address
   const transporter = Nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
-    // port: 587,
-    // port: 465, // for zoho
     secure: false,
-    service: process.env.EMAIL_SERVICE, //N/A for zoho
+    service: process.env.EMAIL_SERVICE,
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASSWORD,
@@ -25,7 +24,7 @@ const SendEmail = async ({ html, replyTo }: SendEmailProps) => {
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
+    to: "booking@teambondingnigeria.com",
     subject: "Message from teambondingnigeria.com",
     html,
     replyTo,
